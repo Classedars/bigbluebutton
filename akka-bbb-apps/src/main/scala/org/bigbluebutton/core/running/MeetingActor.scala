@@ -692,7 +692,7 @@ class MeetingActor(
     }
 
     if (state.expiryTracker.userHasJoined &&
-      Users2x.numUsers(liveMeeting.users2x) == 0
+      Users2x.numUsers(liveMeeting.users2x) == 0 //only count mods
       && !state.expiryTracker.lastUserLeftOnInMs.isDefined) {
       log.info("Setting meeting no more users. meetingId=" + props.meetingProp.intId)
       val tracker = state.expiryTracker.setLastUserLeftOn(TimeUtil.timeNowInMs())
